@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/HexaCircle.png-a28579c0d51bc8bac7cd438f8aaa39d4.stex"
+path="res://.import/dirt.png-2382afb29aad9bc29dc3d87e1d061445.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://HexaCircle.png"
-dest_files=[ "res://.import/HexaCircle.png-a28579c0d51bc8bac7cd438f8aaa39d4.stex" ]
+source_file="res://Assets/Background/dirt.png"
+dest_files=[ "res://.import/dirt.png-2382afb29aad9bc29dc3d87e1d061445.stex" ]
 
 [params]
 
