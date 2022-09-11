@@ -20,7 +20,7 @@ func _process(_delta):
 
 func _set_drag_pc(var new_drag : bool):
 	dragging = new_drag
-	emit_signal("dragsignal")
+	emit_signal("dragsignal", dragging)
 	# drop code
 	if dragging == false:
 		_entity.position = _hex.round_to_hex(_entity.position)
