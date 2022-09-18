@@ -1,6 +1,7 @@
 extends Node
 
 signal grow_plant
+signal follow_rails
 signal check_sell
 
 
@@ -13,5 +14,6 @@ func _ready():
 
 func _on_turn() :
 	emit_signal("grow_plant")
+	emit_signal("follow_rails")
 	emit_signal("check_sell")
 	pass

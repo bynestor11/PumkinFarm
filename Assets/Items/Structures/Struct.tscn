@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Components/Drag&Drop.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Items/Structures/struct.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/EntitiesComponents/EscapeOnDrag.gd" type="Script" id=3]
+
+[node name="Struct" type="Node2D" groups=["Structure"]]
+z_index = 10
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="EscapeOnDrag" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Drag&Drop" parent="." instance=ExtResource( 1 )]

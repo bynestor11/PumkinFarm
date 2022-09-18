@@ -7,23 +7,34 @@ signal dragsignal;
 onready var _tree = get_tree()
 onready var _entity = get_node("..")
 onready var _hex = load("res://Scripts/HexGrid/HexBase.gd")
+onready var _stored_z_index = _entity.z_index
+
+var _stored_position : Vector2
 
 
-	
-	
 func _process(_delta):
 	if dragging:
 		var mousepos = get_viewport().get_mouse_position()
 		_entity.position = Vector2(mousepos.x, mousepos.y)
 
-		
 
 func _set_drag_pc(var new_drag : bool):
 	dragging = new_drag
-	emit_signal("dragsignal", dragging)
+	# drag code
+	if dragging == true:
+		emit_signal("dragsignal", dragging)
+		_stored_position = _entity.global_position
+		# keep item at top of z index
+		_entity.z_index = 500
+	# end of drag code
 	# drop code
 	if dragging == false:
-		_entity.position = _hex.round_to_hex(_entity.position)
+		if _hex.find_at(_hex.round_to_hex(_entity.global_position), $"../..", _entity) == null :
+			_entity.global_position = _hex.round_to_hex(_entity.global_position)
+		else:
+			_entity.global_position = _stored_position
+		_entity.z_index = _stored_z_index
+		emit_signal("dragsignal", dragging)
 	# end of drop code
 
 
@@ -35,7 +46,7 @@ func _set_drag_pc(var new_drag : bool):
 #			_set_drag_pc(false)
 #	elif event is InputEventScreenTouch:
 #		if event.pressed and event.get_index() == 0:
-#			_entity.position = event.get_position()
+#			_entity.global_position = event.get_global_position()
 
 #Utiliza el orden del arbol para decidir que coge primero
 func _input(event):

@@ -3,7 +3,8 @@
 [ext_resource path="res://Assets/Items/pumkim.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/EntitiesComponents/Drag&Drop.gd" type="Script" id=2]
 
-[node name="Pumkim" type="Node2D" groups=["Item"]]
+[node name="Pumkim" type="Node2D"]
+z_index = 10
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
